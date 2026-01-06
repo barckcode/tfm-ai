@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-ocean-900 via-volcanic-900 to-ocean-800 min-h-screen text-white antialiased;
+  }
+
+  * {
+    @apply border-volcanic-700;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-volcanic-800/50 backdrop-blur-sm rounded-lg p-6 border border-volcanic-700 shadow-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-ocean-500;
+  }
+
+  .btn-primary {
+    @apply bg-ocean-600 hover:bg-ocean-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-volcanic-700 hover:bg-volcanic-600 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .glow {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-volcanic-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-volcanic-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-volcanic-500;
+}
