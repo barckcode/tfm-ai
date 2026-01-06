@@ -27,9 +27,7 @@ Open http://localhost:3000 to see the app!
 
 ## 📚 Documentation
 
-- **[QUICK_START.md](./QUICK_START.md)** - Start here! Run the app and test features
-- **[README_SETUP.md](./README_SETUP.md)** - Complete setup guide and project structure
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deploy to Vercel, Netlify, or GitHub Pages
+- **[README.md](./README.md)** - Start here! Run the app and test features
 - **[CLAUDE.md](./CLAUDE.md)** - Full project specifications and architecture
 
 ## 🏗️ Tech Stack
@@ -71,7 +69,7 @@ Open http://localhost:3000 to see the app!
 
 Perfect for demonstrating:
 - ✅ Interactive data visualization
-- ✅ 3D web graphics
+- ✅ 2D web graphics
 - ✅ Real-world data analysis
 - ✅ Modern web development
 - ✅ User experience design
@@ -90,15 +88,6 @@ src/
 └── utils/           # Helper functions
 ```
 
-## 🚢 Deployment
-
-Deploy in minutes to:
-- **Vercel** (recommended)
-- **Netlify**
-- **GitHub Pages**
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for instructions.
-
 ## 🐛 Troubleshooting
 
 ### App won't start?
@@ -107,11 +96,6 @@ rm -rf node_modules
 npm install
 npm run dev
 ```
-
-### 3D map not rendering?
-- Check browser supports WebGL
-- Try Chrome or Firefox
-- Update graphics drivers
 
 ### Data not loading?
 - Verify `src/data/tourism_data.json` exists
