@@ -6,7 +6,8 @@ import tourismData from '../data/tourism_data.json';
 export const useTourismData = (
   selectedIsland: number | null = null,
   startYear?: number,
-  endYear?: number
+  endYear?: number,
+  month?: number
 ) => {
   const [data, setData] = useState<TourismDataPoint[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,8 +39,13 @@ export const useTourismData = (
       filtered = filterDataByDateRange(filtered, startYear, endYear);
     }
 
+    // Filter by month
+    if (month !== undefined && month !== null) {
+      filtered = filtered.filter(d => d.month === month);
+    }
+
     return filtered;
-  }, [data, selectedIsland, startYear, endYear]);
+  }, [data, selectedIsland, startYear, endYear, month]);
 
   const aggregatedData: AggregatedData = useMemo(() => {
     return aggregateData(filteredData);
@@ -52,13 +58,16 @@ export const useTourismData = (
 
   // Aggregate by island for comparison charts (only when not filtering by island)
   const islandMetrics: IslandMetrics[] = useMemo(() => {
-    // For island comparison, we want to use data filtered by year but NOT by island
+    // For island comparison, we want to use data filtered by year/month but NOT by island
     let comparisonData = data;
     if (startYear || endYear) {
       comparisonData = filterDataByDateRange(comparisonData, startYear, endYear);
     }
+    if (month !== undefined && month !== null) {
+      comparisonData = comparisonData.filter(d => d.month === month);
+    }
     return aggregateByIsland(comparisonData);
-  }, [data, startYear, endYear]);
+  }, [data, startYear, endYear, month]);
 
   return {
     data: filteredData,

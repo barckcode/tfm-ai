@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ISLANDS_INFO, ISLAND_COLORS } from '../../types/tourism';
+import { ISLANDS_INFO } from '../../types/tourism';
 
 interface CanaryIslands2DProps {
   selectedIsland: number | null;

@@ -1,24 +1,24 @@
 import React from 'react';
-import { YearFilter } from './YearFilter';
+import { DownloadMenu } from './DownloadMenu';
 
 interface HeaderProps {
   selectedIsland: number | null;
-  onClearSelection: () => void;
-  years: number[];
   selectedYear: number | null;
-  onYearChange: (year: number | null) => void;
+  selectedMonth: number | null;
+  filteredData: any[];
+  aggregatedData: any;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   selectedIsland,
-  onClearSelection,
-  years,
   selectedYear,
-  onYearChange
+  selectedMonth,
+  filteredData,
+  aggregatedData
 }) => {
   return (
-    <header className="bg-volcanic-800/70 backdrop-blur-md border-b border-volcanic-700 px-6 py-4 shadow-lg">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="bg-volcanic-800/70 backdrop-blur-md border-b border-volcanic-700 px-6 py-4 shadow-lg sticky top-0 z-50">
+      <div className="max-w-8xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h1 className="text-2xl font-bold text-shadow">
             Canarias Tourism Analytics
@@ -28,35 +28,13 @@ export const Header: React.FC<HeaderProps> = ({
           </span>
         </div>
 
-        <div className="flex items-center gap-4">
-          <YearFilter
-            years={years}
-            selectedYear={selectedYear}
-            onYearChange={onYearChange}
-          />
-
-          {selectedIsland !== null && (
-            <button
-              onClick={onClearSelection}
-              className="btn-secondary flex items-center gap-2"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
-              View All Islands
-            </button>
-          )}
-        </div>
+        <DownloadMenu
+          selectedIsland={selectedIsland}
+          selectedYear={selectedYear}
+          selectedMonth={selectedMonth}
+          filteredData={filteredData}
+          aggregatedData={aggregatedData}
+        />
       </div>
     </header>
   );

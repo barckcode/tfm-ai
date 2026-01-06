@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { AggregatedData } from '../../types/tourism';
-import { formatDate, formatPercentage } from '../../utils/formatters';
+import { formatDate } from '../../utils/formatters';
 
 interface OccupancyChartProps {
   data: AggregatedData;
