@@ -10,32 +10,32 @@ interface KPICardsProps {
 export const KPICards: React.FC<KPICardsProps> = ({ data, islandName }) => {
   const kpis = [
     {
-      label: 'Total Tourists',
+      label: 'Total Turistas',
       value: formatNumber(data.total_tourists),
       icon: '👥',
       color: 'ocean'
     },
     {
-      label: 'Avg Occupancy',
+      label: 'Ocupación Media',
       value: formatPercentage(data.avg_occupancy),
       icon: '🏨',
       color: 'sand'
     },
     {
-      label: 'Total Revenue',
+      label: 'Ingresos Totales',
       value: formatCurrency(data.total_revenue),
       icon: '💰',
       color: 'ocean'
     },
     {
-      label: 'Avg Spend/Trip',
+      label: 'Gasto Medio/Viaje',
       value: formatCurrency(data.avg_spend_per_trip),
       icon: '💳',
       color: 'sand'
     },
     {
-      label: 'Avg Stay Length',
-      value: `${formatDecimal(data.avg_stay_length)} days`,
+      label: 'Estancia Media',
+      value: `${formatDecimal(data.avg_stay_length)} días`,
       icon: '📅',
       color: 'ocean'
     }
@@ -46,7 +46,7 @@ export const KPICards: React.FC<KPICardsProps> = ({ data, islandName }) => {
       {islandName && (
         <div className="flex items-center gap-3">
           <h2 className="text-2xl font-bold text-ocean-300">
-            {islandName} Metrics
+            Métricas de {islandName}
           </h2>
         </div>
       )}

@@ -38,7 +38,7 @@ function App() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-ocean-500 mx-auto"></div>
-          <p className="text-volcanic-300">Loading tourism data...</p>
+          <p className="text-volcanic-300">Cargando datos de turismo...</p>
         </div>
       </div>
     );
@@ -48,7 +48,7 @@ function App() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="card max-w-md text-center space-y-4">
-          <p className="text-red-400 text-lg font-semibold">Error loading data</p>
+          <p className="text-red-400 text-lg font-semibold">Error al cargar los datos</p>
           <p className="text-volcanic-300">{error}</p>
         </div>
       </div>
@@ -113,8 +113,8 @@ function App() {
             {/* Footer Info */}
             <div className="card text-center text-sm text-volcanic-300" data-exclude-pdf="true">
               <p>
-                Data Source: Official Canary Islands Tourism Statistics (2015-2025)
-                • TFM Generative AI • 2025
+                Fuente de Datos: Estadísticas Oficiales de Turismo de Canarias (2015-2025)
+                • TFM IA Generativa • 2025
               </p>
             </div>
         </div>

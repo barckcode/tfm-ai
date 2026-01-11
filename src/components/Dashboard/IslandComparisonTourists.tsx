@@ -19,7 +19,7 @@ export const IslandComparisonTourists: React.FC<IslandComparisonTouristsProps> =
     <div className="card">
       <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
         <span className="text-2xl">📊</span>
-        Total Tourists by Island
+        Total de Turistas por Isla
       </h3>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
@@ -44,7 +44,7 @@ export const IslandComparisonTourists: React.FC<IslandComparisonTouristsProps> =
               borderRadius: '8px',
               color: '#f1f5f9'
             }}
-            formatter={(value: number) => [formatNumber(value), 'Tourists']}
+            formatter={(value: number) => [formatNumber(value), 'Turistas']}
           />
           <Bar
             dataKey="tourists"

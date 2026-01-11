@@ -64,7 +64,7 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
       // Header
       pdf.setFontSize(20);
       pdf.setFont('helvetica', 'bold');
-      pdf.text('Canary Islands Tourism Report', pageWidth / 2, yPosition, { align: 'center' });
+      pdf.text('Informe de Turismo de Canarias', pageWidth / 2, yPosition, { align: 'center' });
       yPosition += 10;
 
       // Filter information
@@ -73,20 +73,20 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
       const filterLines: string[] = [];
 
       if (!selectedIsland && !selectedYear && !selectedMonth) {
-        filterLines.push('All Data (No Filters Applied)');
+        filterLines.push('Todos los Datos (Sin Filtros Aplicados)');
       } else {
-        filterLines.push('Active Filters:');
+        filterLines.push('Filtros Activos:');
         if (selectedIsland) {
           const island = ISLANDS_INFO.find(i => i.code === selectedIsland);
-          filterLines.push(`  • Island: ${island?.name || 'Unknown'}`);
+          filterLines.push(`  • Isla: ${island?.name || 'Desconocida'}`);
         }
         if (selectedYear) {
-          filterLines.push(`  • Year: ${selectedYear}`);
+          filterLines.push(`  • Año: ${selectedYear}`);
         }
         if (selectedMonth) {
-          const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                             'July', 'August', 'September', 'October', 'November', 'December'];
-          filterLines.push(`  • Month: ${monthNames[selectedMonth - 1]}`);
+          const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                             'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+          filterLines.push(`  • Mes: ${monthNames[selectedMonth - 1]}`);
         }
       }
 
@@ -133,7 +133,7 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
       }
 
       // Footer
-      const reportDate = new Date().toLocaleDateString('en-US', {
+      const reportDate = new Date().toLocaleDateString('es-ES', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
@@ -141,7 +141,7 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
       pdf.setFontSize(10);
       pdf.setFont('helvetica', 'italic');
       const footerY = pdf.internal.pageSize.getHeight() - 10;
-      pdf.text(`Generated on ${reportDate} • TFM Generative AI 2025`, pageWidth / 2, footerY, { align: 'center' });
+      pdf.text(`Generado el ${reportDate} • TFM IA Generativa 2025`, pageWidth / 2, footerY, { align: 'center' });
 
       // Download
       const fileName = selectedIsland || selectedYear || selectedMonth
@@ -152,7 +152,7 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
 
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Error generating PDF report. Please try again.');
+      alert('Error al generar el informe PDF. Por favor, inténtalo de nuevo.');
     }
   };
 
@@ -176,7 +176,7 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
             d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
           />
         </svg>
-        <span>Download</span>
+        <span>Descargar</span>
       </button>
 
       {isOpen && (
@@ -202,8 +202,8 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
                 />
               </svg>
               <div>
-                <div className="font-semibold">JSON Data</div>
-                <div className="text-xs text-volcanic-400">Complete dataset</div>
+                <div className="font-semibold">Datos JSON</div>
+                <div className="text-xs text-volcanic-400">Dataset completo</div>
               </div>
             </button>
 
@@ -226,11 +226,11 @@ export const DownloadMenu: React.FC<DownloadMenuProps> = ({
                 />
               </svg>
               <div>
-                <div className="font-semibold">PDF Report</div>
+                <div className="font-semibold">Informe PDF</div>
                 <div className="text-xs text-volcanic-400">
                   {selectedIsland || selectedYear || selectedMonth
-                    ? 'Filtered data'
-                    : 'All data'}
+                    ? 'Datos filtrados'
+                    : 'Todos los datos'}
                 </div>
               </div>
             </button>

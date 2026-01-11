@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-8xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h1 className="text-2xl font-bold text-shadow">
-            Canarias Tourism Analytics
+            Analítica de Turismo de Canarias
           </h1>
           <span className="text-sm text-ocean-300 bg-ocean-900/30 px-3 py-1 rounded-full">
             TFM 2025

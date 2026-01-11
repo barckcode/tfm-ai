@@ -16,7 +16,7 @@ export const SeasonalityChart: React.FC<SeasonalityChartProps> = ({ data }) => {
   return (
     <div className="card">
       <h3 className="text-lg font-semibold mb-4 text-ocean-300">
-        Seasonal Tourist Distribution
+        Distribución Estacional de Turistas
       </h3>
 
       <ResponsiveContainer width="100%" height={300}>
@@ -47,7 +47,7 @@ export const SeasonalityChart: React.FC<SeasonalityChartProps> = ({ data }) => {
               borderRadius: '8px',
               color: '#f1f5f9'
             }}
-            formatter={(value: number) => [formatNumber(value), 'Tourists']}
+            formatter={(value: number) => [formatNumber(value), 'Turistas']}
           />
           <Area
             type="monotone"

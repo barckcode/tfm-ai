@@ -17,7 +17,7 @@ export const TouristChart: React.FC<TouristChartProps> = ({ data }) => {
   return (
     <div className="card">
       <h3 className="text-lg font-semibold mb-4 text-ocean-300">
-        Tourist Arrivals Over Time
+        Llegada de Turistas en el Tiempo
       </h3>
 
       <ResponsiveContainer width="100%" height={300}>
@@ -42,7 +42,7 @@ export const TouristChart: React.FC<TouristChartProps> = ({ data }) => {
               borderRadius: '8px',
               color: '#f1f5f9'
             }}
-            formatter={(value: number) => [formatNumber(value), 'Tourists']}
+            formatter={(value: number) => [formatNumber(value), 'Turistas']}
           />
           <Legend
             wrapperStyle={{ color: '#94a3b8' }}
@@ -54,7 +54,7 @@ export const TouristChart: React.FC<TouristChartProps> = ({ data }) => {
             stroke="#0ea5e9"
             strokeWidth={2}
             dot={false}
-            name="Total Tourists"
+            name="Total Turistas"
           />
         </LineChart>
       </ResponsiveContainer>

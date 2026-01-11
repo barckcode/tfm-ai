@@ -16,7 +16,7 @@ export const OccupancyChart: React.FC<OccupancyChartProps> = ({ data }) => {
   return (
     <div className="card">
       <h3 className="text-lg font-semibold mb-4 text-ocean-300">
-        Hotel Occupancy Trends
+        Tendencias de Ocupación Hotelera
       </h3>
 
       <ResponsiveContainer width="100%" height={300}>
@@ -41,7 +41,7 @@ export const OccupancyChart: React.FC<OccupancyChartProps> = ({ data }) => {
               borderRadius: '8px',
               color: '#f1f5f9'
             }}
-            formatter={(value: number) => [`${value.toFixed(1)}%`, 'Occupancy']}
+            formatter={(value: number) => [`${value.toFixed(1)}%`, 'Ocupación']}
           />
           <Line
             type="monotone"

@@ -218,8 +218,8 @@ export const CanaryIslands2D: React.FC<CanaryIslands2DProps> = ({
 
       {/* Legend */}
       <div className="absolute bottom-6 left-6 bg-slate-900/80 backdrop-blur-sm p-4 rounded-lg border border-slate-700">
-        <p className="text-xs text-slate-300 mb-2 font-semibold">Canary Islands</p>
-        <p className="text-xs text-slate-400">Click on an island to view details</p>
+        <p className="text-xs text-slate-300 mb-2 font-semibold">Islas Canarias</p>
+        <p className="text-xs text-slate-400">Haz clic en una isla para ver detalles</p>
       </div>
     </div>
   );

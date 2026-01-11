@@ -12,18 +12,18 @@ interface FilterBarProps {
 }
 
 const MONTHS = [
-  { value: 1, label: 'January' },
-  { value: 2, label: 'February' },
-  { value: 3, label: 'March' },
-  { value: 4, label: 'April' },
-  { value: 5, label: 'May' },
-  { value: 6, label: 'June' },
-  { value: 7, label: 'July' },
-  { value: 8, label: 'August' },
-  { value: 9, label: 'September' },
-  { value: 10, label: 'October' },
-  { value: 11, label: 'November' },
-  { value: 12, label: 'December' }
+  { value: 1, label: 'Enero' },
+  { value: 2, label: 'Febrero' },
+  { value: 3, label: 'Marzo' },
+  { value: 4, label: 'Abril' },
+  { value: 5, label: 'Mayo' },
+  { value: 6, label: 'Junio' },
+  { value: 7, label: 'Julio' },
+  { value: 8, label: 'Agosto' },
+  { value: 9, label: 'Septiembre' },
+  { value: 10, label: 'Octubre' },
+  { value: 11, label: 'Noviembre' },
+  { value: 12, label: 'Diciembre' }
 ];
 
 export const FilterBar: React.FC<FilterBarProps> = ({
@@ -40,7 +40,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
       <div className="flex flex-col gap-6">
         {/* Title */}
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">Filters</h3>
+          <h3 className="text-lg font-semibold">Filtros</h3>
           {(selectedIsland !== null || selectedYear !== null || selectedMonth !== null) && (
             <button
               onClick={() => {
@@ -50,7 +50,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               }}
               className="text-sm text-ocean-400 hover:text-ocean-300 transition-colors"
             >
-              Clear All Filters
+              Limpiar Filtros
             </button>
           )}
         </div>
@@ -58,7 +58,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         {/* Island Selector */}
         <div>
           <label className="block text-sm font-medium text-volcanic-300 mb-3">
-            Select Island
+            Seleccionar Isla
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
             <button
@@ -69,7 +69,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   : 'border-volcanic-600 bg-volcanic-700/50 text-volcanic-300 hover:border-volcanic-500'
               }`}
             >
-              All Islands
+              Todas las Islas
             </button>
             {ISLANDS_INFO.map((island) => (
               <button
@@ -101,7 +101,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           {/* Year Filter */}
           <div>
             <label htmlFor="year-filter" className="block text-sm font-medium text-volcanic-300 mb-2">
-              Year
+              Año
             </label>
             <select
               id="year-filter"
@@ -115,7 +115,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                          hover:border-ocean-500 focus:border-ocean-500 focus:ring-2
                          focus:ring-ocean-200/20 transition-colors cursor-pointer"
             >
-              <option value="all">All Years</option>
+              <option value="all">Todos los Años</option>
               {years.map((year) => (
                 <option key={year} value={year}>
                   {year}
@@ -127,7 +127,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           {/* Month Filter */}
           <div>
             <label htmlFor="month-filter" className="block text-sm font-medium text-volcanic-300 mb-2">
-              Month
+              Mes
             </label>
             <select
               id="month-filter"
@@ -143,7 +143,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                          focus:ring-ocean-200/20 transition-colors cursor-pointer
                          disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <option value="all">All Months</option>
+              <option value="all">Todos los Meses</option>
               {MONTHS.map((month) => (
                 <option key={month.value} value={month.value}>
                   {month.label}
@@ -152,7 +152,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </select>
             {!selectedYear && (
               <p className="text-xs text-volcanic-400 mt-1">
-                Select a year first to filter by month
+                Selecciona un año primero para filtrar por mes
               </p>
             )}
           </div>
