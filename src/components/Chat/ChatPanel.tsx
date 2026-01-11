@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { sendChatMessage } from '../../services/chatApi';
 
 interface Message {
@@ -197,7 +198,21 @@ export const ChatPanel: React.FC = () => {
                       : 'bg-volcanic-700 text-volcanic-100'
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap break-words">{message.text}</p>
+                  {message.sender === 'user' ? (
+                    <p className="text-sm whitespace-pre-wrap break-words">{message.text}</p>
+                  ) : (
+                    <div className="text-sm prose prose-invert prose-sm max-w-none
+                                    prose-p:my-2 prose-p:leading-relaxed
+                                    prose-headings:text-ocean-300 prose-headings:font-semibold prose-headings:my-2
+                                    prose-ul:my-2 prose-ul:list-disc prose-ul:pl-4
+                                    prose-ol:my-2 prose-ol:list-decimal prose-ol:pl-4
+                                    prose-li:my-1
+                                    prose-strong:text-ocean-200 prose-strong:font-bold
+                                    prose-code:text-sand-300 prose-code:bg-volcanic-900 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                                    prose-pre:bg-volcanic-900 prose-pre:p-3 prose-pre:rounded prose-pre:my-2">
+                      <ReactMarkdown>{message.text}</ReactMarkdown>
+                    </div>
+                  )}
                   <p className="text-xs opacity-70 mt-1">
                     {message.timestamp.toLocaleTimeString('es-ES', {
                       hour: '2-digit',
