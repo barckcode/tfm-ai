@@ -9,6 +9,7 @@ import { SeasonalityChart } from './components/Dashboard/SeasonalityChart';
 import { OccupancyChart } from './components/Dashboard/OccupancyChart';
 import { IslandComparisonTourists } from './components/Dashboard/IslandComparisonTourists';
 import { IslandComparisonRevenue } from './components/Dashboard/IslandComparisonRevenue';
+import { ChatPanel } from './components/Chat/ChatPanel';
 import { useTourismData } from './hooks/useTourismData';
 import { useIslandSelection } from './hooks/useIslandSelection';
 import { ISLANDS_INFO } from './types/tourism';
@@ -119,6 +120,9 @@ function App() {
             </div>
         </div>
       </main>
+
+      {/* Floating Chat Panel */}
+      <ChatPanel />
     </div>
   );
 }
