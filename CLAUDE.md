@@ -1,57 +1,57 @@
-# Canarias Tourism Analytics - TFM MVP
+# Analítica de Turismo de Canarias - MVP TFM
 
-## Project Overview
+## Descripción del Proyecto
 
-This is a **Master's Thesis (TFM) project** for a Generative AI program. The goal is to build an interactive tourism analytics platform for the Canary Islands that democratizes access to tourism insights for small businesses and local institutions.
+Este es un **proyecto de Trabajo Fin de Máster (TFM)** para un programa de IA Generativa. El objetivo es construir una plataforma interactiva de análisis de turismo para las Islas Canarias que democratice el acceso a información turística para pequeñas empresas e instituciones locales.
 
-## Core Vision
+## Visión Principal
 
-An interactive React application featuring:
-1. **3D Map of Canary Islands** - Clickable islands that filter data
-2. **Dashboard with KPIs** - Tourism metrics visualization
-3. **AI Chat (stretch goal)** - Claude-powered contextual Q&A restricted to dataset insights
+Una aplicación React interactiva que incluye:
+1. **Mapa 3D de las Islas Canarias** - Islas clicables que filtran datos
+2. **Dashboard con KPIs** - Visualización de métricas de turismo
+3. **Chat con IA (objetivo adicional)** - Q&A contextual impulsado por Claude restringido a información del dataset
 
-## Tech Stack
+## Stack Tecnológico
 
-- **Frontend**: React 18+ with TypeScript
-- **3D Visualization**: React Three Fiber (Three.js)
-- **Charts**: Recharts
-- **Styling**: Tailwind CSS
-- **AI Chat**: Anthropic Claude API (if time permits)
-- **Build**: Vite
+- **Frontend**: React 18+ con TypeScript
+- **Visualización 3D**: React Three Fiber (Three.js)
+- **Gráficas**: Recharts
+- **Estilos**: Tailwind CSS
+- **Chat con IA**: API de Anthropic Claude (si el tiempo lo permite)
+- **Construcción**: Vite
 
-## Dataset Details
+## Detalles del Dataset
 
-File: `canarias_turismo_2015_2025.csv` (~4K rows)
+Archivo: `canarias_turismo_2015_2025.csv` (~4K filas)
 
-### Schema (20 columns)
+### Esquema (20 columnas)
 
-| Column | Type | Description |
+| Columna | Tipo | Descripción |
 |--------|------|-------------|
-| week_start_date | date | Start of the week (YYYY-MM-DD) |
-| year | int | Year (2015-2025) |
-| month | int | Month number (1-12) |
-| calendar_week | int | Week of year (1-53) |
-| island_code | string | Island identifier (01-07) |
-| island_name | string | Island name |
-| total_tourists | int | Total tourists that week |
-| intl_passengers | int | International passengers |
-| most_common_intl_country | string | Most common origin (ES, UK, DE, FR, IT, NL, SE, PT) |
-| dom_passengers | int | Domestic passengers |
-| occupancy_rate | float | Hotel occupancy (0.23-0.84) |
-| avg_daily_rate_eur | float | Average daily rate in EUR (30-112€) |
-| nights | int | Total nights stayed |
-| guests | int | Number of guests |
-| revenue | float | Hotel revenue in EUR |
-| avg_spend_per_trip | float | Average spend per trip (425-1205€) |
-| stay_length | float | Average stay in days (5.6-7.9) |
-| total_expenditure | float | Total tourist expenditure |
-| events_count | int | Number of events that week |
-| event_attendance | int | Event attendance |
+| week_start_date | fecha | Inicio de la semana (YYYY-MM-DD) |
+| year | int | Año (2015-2025) |
+| month | int | Número de mes (1-12) |
+| calendar_week | int | Semana del año (1-53) |
+| island_code | string | Identificador de isla (01-07) |
+| island_name | string | Nombre de la isla |
+| total_tourists | int | Total de turistas esa semana |
+| intl_passengers | int | Pasajeros internacionales |
+| most_common_intl_country | string | Origen más común (ES, UK, DE, FR, IT, NL, SE, PT) |
+| dom_passengers | int | Pasajeros domésticos |
+| occupancy_rate | float | Ocupación hotelera (0.23-0.84) |
+| avg_daily_rate_eur | float | Tarifa diaria promedio en EUR (30-112€) |
+| nights | int | Total de noches de estancia |
+| guests | int | Número de huéspedes |
+| revenue | float | Ingresos hoteleros en EUR |
+| avg_spend_per_trip | float | Gasto promedio por viaje (425-1205€) |
+| stay_length | float | Estancia promedio en días (5.6-7.9) |
+| total_expenditure | float | Gasto total turístico |
+| events_count | int | Número de eventos esa semana |
+| event_attendance | int | Asistencia a eventos |
 
-### Islands (by tourist volume)
+### Islas (por volumen turístico)
 
-| Code | Name | Total Tourists (2015-2025) |
+| Código | Nombre | Total Turistas (2015-2025) |
 |------|------|---------------------------|
 | 01 | Tenerife | 10,740,750 |
 | 02 | Gran Canaria | 10,322,008 |
@@ -61,129 +61,129 @@ File: `canarias_turismo_2015_2025.csv` (~4K rows)
 | 06 | La Gomera | 964,021 |
 | 07 | El Hierro | 642,514 |
 
-### Key Metrics Ranges
+### Rangos de Métricas Clave
 
-- **Tourists per week**: 332 - 34,537
-- **Occupancy**: 23% - 84% (avg 55%)
-- **Daily Rate**: 30€ - 112€ (avg 60€)
-- **Stay Length**: 5.6 - 7.9 days (avg 6.8)
-- **Spend per Trip**: 425€ - 1,205€ (avg 802€)
+- **Turistas por semana**: 332 - 34,537
+- **Ocupación**: 23% - 84% (promedio 55%)
+- **Tarifa Diaria**: 30€ - 112€ (promedio 60€)
+- **Duración de Estancia**: 5.6 - 7.9 días (promedio 6.8)
+- **Gasto por Viaje**: 425€ - 1,205€ (promedio 802€)
 
-## Architecture
+## Arquitectura
 
 ```
 src/
 ├── components/
 │   ├── Map3D/
-│   │   ├── CanaryIslands.tsx      # Main 3D scene
-│   │   ├── Island.tsx             # Individual island mesh
-│   │   └── IslandGeometry.ts      # Island shape definitions
+│   │   ├── CanaryIslands.tsx      # Escena 3D principal
+│   │   ├── Island.tsx             # Malla de isla individual
+│   │   └── IslandGeometry.ts      # Definiciones de forma de isla
 │   ├── Dashboard/
-│   │   ├── KPICards.tsx           # Summary metrics
-│   │   ├── TouristChart.tsx       # Time series
-│   │   ├── OccupancyChart.tsx     # Occupancy trends
-│   │   ├── OriginChart.tsx        # Country breakdown
-│   │   └── SeasonalityChart.tsx   # Monthly patterns
-│   ├── Chat/                      # (Stretch goal)
+│   │   ├── KPICards.tsx           # Métricas resumidas
+│   │   ├── TouristChart.tsx       # Series temporales
+│   │   ├── OccupancyChart.tsx     # Tendencias de ocupación
+│   │   ├── OriginChart.tsx        # Desglose por país
+│   │   └── SeasonalityChart.tsx   # Patrones mensuales
+│   ├── Chat/                      # (Objetivo adicional)
 │   │   ├── ChatPanel.tsx
 │   │   └── ChatMessage.tsx
 │   └── Layout/
 │       ├── Header.tsx
 │       └── Sidebar.tsx
 ├── hooks/
-│   ├── useTourismData.ts          # Data loading & filtering
-│   └── useIslandSelection.ts      # Island state management
+│   ├── useTourismData.ts          # Carga y filtrado de datos
+│   └── useIslandSelection.ts      # Gestión del estado de isla
 ├── data/
-│   └── tourism.json               # Transformed CSV data
+│   └── tourism.json               # Datos CSV transformados
 ├── types/
-│   └── tourism.ts                 # TypeScript interfaces
+│   └── tourism.ts                 # Interfaces de TypeScript
 ├── utils/
-│   ├── dataTransforms.ts          # Aggregation functions
-│   └── formatters.ts              # Number/date formatting
+│   ├── dataTransforms.ts          # Funciones de agregación
+│   └── formatters.ts              # Formateo de números/fechas
 ├── App.tsx
 └── main.tsx
 ```
 
-## User Flow
+## Flujo de Usuario
 
-1. **Landing View**: 3D map shows all Canary Islands with aggregated totals
-2. **Island Selection**: User clicks an island → map zooms/highlights → dashboard filters to that island
-3. **Back Navigation**: "All Islands" button returns to aggregated view
-4. **Time Filtering**: Year/month selectors to narrow temporal range
-5. **Chat (stretch)**: Ask questions about the data in natural language
+1. **Vista de Inicio**: El mapa 3D muestra todas las Islas Canarias con totales agregados
+2. **Selección de Isla**: El usuario hace clic en una isla → el mapa hace zoom/resalta → el dashboard filtra a esa isla
+3. **Navegación de Vuelta**: El botón "Todas las Islas" regresa a la vista agregada
+4. **Filtrado Temporal**: Selectores de año/mes para reducir el rango temporal
+5. **Chat (adicional)**: Hacer preguntas sobre los datos en lenguaje natural
 
-## Implementation Phases
+## Fases de Implementación
 
-### Phase 1: Project Setup & Data
-- [ ] Initialize Vite + React + TypeScript
-- [ ] Configure Tailwind CSS
-- [ ] Transform CSV to optimized JSON structure
-- [ ] Create TypeScript interfaces
-- [ ] Implement data loading hook
+### Fase 1: Configuración del Proyecto y Datos
+- [ ] Inicializar Vite + React + TypeScript
+- [ ] Configurar Tailwind CSS
+- [ ] Transformar CSV a estructura JSON optimizada
+- [ ] Crear interfaces de TypeScript
+- [ ] Implementar hook de carga de datos
 
-### Phase 2: 3D Map
-- [ ] Set up React Three Fiber scene
-- [ ] Create simplified island geometries (can be extruded polygons)
-- [ ] Implement click detection per island
-- [ ] Add hover effects and selection highlighting
-- [ ] Camera controls (orbit, zoom to island)
+### Fase 2: Mapa 3D
+- [ ] Configurar escena de React Three Fiber
+- [ ] Crear geometrías de islas simplificadas (pueden ser polígonos extruidos)
+- [ ] Implementar detección de clic por isla
+- [ ] Agregar efectos de hover y resaltado de selección
+- [ ] Controles de cámara (órbita, zoom a isla)
 
-### Phase 3: Dashboard
-- [ ] KPI cards (total tourists, avg occupancy, revenue, etc.)
-- [ ] Time series chart (tourists over time)
-- [ ] Bar chart (tourists by origin country)
-- [ ] Seasonal heatmap or line chart
-- [ ] All charts respond to island selection
+### Fase 3: Dashboard
+- [ ] Tarjetas KPI (total turistas, ocupación promedio, ingresos, etc.)
+- [ ] Gráfica de series temporales (turistas a lo largo del tiempo)
+- [ ] Gráfica de barras (turistas por país de origen)
+- [ ] Mapa de calor estacional o gráfica de líneas
+- [ ] Todas las gráficas responden a la selección de isla
 
-### Phase 4: Polish
-- [ ] Smooth transitions between views
-- [ ] Loading states
-- [ ] Responsive design
-- [ ] Error handling
+### Fase 4: Pulido
+- [ ] Transiciones suaves entre vistas
+- [ ] Estados de carga
+- [ ] Diseño responsivo
+- [ ] Manejo de errores
 
-### Phase 5: AI Chat (Stretch Goal)
-- [ ] Chat UI component
-- [ ] Integration with Claude API
-- [ ] System prompt restricting responses to dataset context
-- [ ] Display data-backed answers
+### Fase 5: Chat con IA (Objetivo Adicional)
+- [ ] Componente de UI de chat
+- [ ] Integración con API de Claude
+- [ ] Prompt del sistema que restringe respuestas al contexto del dataset
+- [ ] Mostrar respuestas respaldadas por datos
 
-## Design Guidelines
+## Guías de Diseño
 
-- **Color Palette**: Ocean blues, sandy yellows, volcanic grays
-- **Typography**: Clean, modern sans-serif
-- **Islands**: Each island should have a distinct but harmonious color
-- **Interactions**: Smooth hover/click feedback, transitions ~300ms
-- **Mobile**: Responsive but desktop-first (TFM presentation will be on desktop)
+- **Paleta de Colores**: Azules océano, amarillos arena, grises volcánicos
+- **Tipografía**: Sans-serif limpia y moderna
+- **Islas**: Cada isla debe tener un color distintivo pero armonioso
+- **Interacciones**: Retroalimentación suave en hover/clic, transiciones ~300ms
+- **Móvil**: Responsivo pero orientado a escritorio primero (la presentación del TFM será en escritorio)
 
-## Key Commands
+## Comandos Clave
 
 ```bash
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Development
+# Desarrollo
 npm run dev
 
-# Build for production
+# Construcción para producción
 npm run build
 
-# Preview production build
+# Vista previa de construcción de producción
 npm run preview
 ```
 
-## Important Notes
+## Notas Importantes
 
-1. **Data is real**: Sourced from official Canary Islands government statistics
-2. **Time constraint**: ~2 weeks to complete
-3. **Academic context**: This is for a TFM presentation, needs to be visually impressive
-4. **3D Map priority**: The interactive map is the hero feature
-5. **No backend needed**: All data can be bundled with the frontend
+1. **Los datos son reales**: Provenientes de estadísticas oficiales del gobierno de las Islas Canarias
+2. **Restricción de tiempo**: ~2 semanas para completar
+3. **Contexto académico**: Esto es para una presentación de TFM, necesita ser visualmente impresionante
+4. **Prioridad del Mapa 3D**: El mapa interactivo es la característica principal
+5. **No se necesita backend**: Todos los datos pueden empaquetarse con el frontend
 
-## Island Approximate Positions (for 3D map)
+## Posiciones Aproximadas de las Islas (para mapa 3D)
 
-Relative positions (normalized coordinates, Tenerife as center reference):
+Posiciones relativas (coordenadas normalizadas, Tenerife como referencia central):
 
-| Island | X | Y | Relative Size |
+| Isla | X | Y | Tamaño Relativo |
 |--------|---|---|---------------|
 | El Hierro | -2.0 | -0.5 | 0.3 |
 | La Palma | -1.5 | 0.8 | 0.4 |
@@ -193,11 +193,11 @@ Relative positions (normalized coordinates, Tenerife as center reference):
 | Fuerteventura | 2.2 | -0.2 | 0.7 |
 | Lanzarote | 2.5 | 0.6 | 0.5 |
 
-## Success Criteria
+## Criterios de Éxito
 
-1. User can see 3D map of all 7 Canary Islands
-2. Clicking an island filters all dashboard data to that island
-3. Dashboard shows at least 4 different visualizations
-4. Time-based filtering works (year/month)
-5. Visual design is polished and professional
-6. (Stretch) AI chat answers questions about the data
+1. El usuario puede ver el mapa 3D de las 7 Islas Canarias
+2. Hacer clic en una isla filtra todos los datos del dashboard a esa isla
+3. El dashboard muestra al menos 4 visualizaciones diferentes
+4. El filtrado basado en tiempo funciona (año/mes)
+5. El diseño visual está pulido y profesional
+6. (Adicional) El chat con IA responde preguntas sobre los datos
